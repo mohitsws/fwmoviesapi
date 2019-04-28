@@ -68,23 +68,5 @@ namespace Movies.Controllers
             }
             return NotFound();
         }
-
-        [Route("")]
-        public IHttpActionResult Get([FromUri]int top, [FromUri]int userId)
-        {
-            var search = new SearchRequest().ByUser(userId)
-                                            .SortBy(_comparerFactory.Get(SortAttributes.Rating))
-                                            .SortBy(_comparerFactory.Get(SortAttributes.Title));
-
-            var movies = _movieRepository.GetMovies(search);
-            if (movies?.Count > 0)
-            {
-                var result = _mapper.Map<IEnumerable<MovieModel>>(movies)
-                                        .Take(top);
-
-                return Ok(result);
-            }
-            return NotFound();
-        }
     }
 }
