@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "a3c21201-4607-42f9-b0d2-75d7096448a2",
+		"name": "Movies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getMovies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:54547/api/movies?top=10&yearofrelease=2011&partialtitle=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54547",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "genres",
+							"value": "horror",
+							"disabled": true
+						},
+						{
+							"key": "sortby",
+							"value": "rating",
+							"disabled": true
+						},
+						{
+							"key": "top",
+							"value": "10"
+						},
+						{
+							"key": "title",
+							"value": "la",
+							"disabled": true
+						},
+						{
+							"key": "yearofrelease",
+							"value": "2011"
+						},
+						{
+							"key": "partialtitle",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMovies User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:54547/api/users/4/movies?top=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54547",
+					"path": [
+						"api",
+						"users",
+						"4",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "top",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post rating",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"rating\":\"3\"}"
+				},
+				"url": {
+					"raw": "http://localhost:54547/api/users/4/movies/6/ratings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54547",
+					"path": [
+						"api",
+						"users",
+						"4",
+						"movies",
+						"6",
+						"ratings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update rating",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"rating\":\"5\"}"
+				},
+				"url": {
+					"raw": "http://localhost:54547/api/users/4/movies/6/ratings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54547",
+					"path": [
+						"api",
+						"users",
+						"4",
+						"movies",
+						"6",
+						"ratings"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
