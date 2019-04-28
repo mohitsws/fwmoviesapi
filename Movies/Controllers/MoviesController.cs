@@ -30,11 +30,11 @@ namespace Movies.Controllers
         {
             if (string.IsNullOrEmpty(sortBy) || top < 1)
             {
-                return BadRequest();
+                return BadRequest("Please provide the valid SortBy attribute & a number to fetch top n movies.");
             }
 
             if (!Enum.TryParse(sortBy, true, out SortAttributes s)) // Support only rating as supported attribute
-                return BadRequest();
+                return BadRequest("Movies can only be requested to sort based on Rating.");
 
             var search = new SearchRequest().SortBy(_comparerFactory.Get(SortAttributes.Rating))
                                             .SortBy(_comparerFactory.Get(SortAttributes.Title));
@@ -55,7 +55,7 @@ namespace Movies.Controllers
         {
             if (string.IsNullOrEmpty(title) && yearOfRelease == 0 && string.IsNullOrWhiteSpace(genres))
             {
-                return BadRequest();
+                return BadRequest("At least one of the title, year of release or genre should be provided.");
             }
 
             var search = new SearchRequest().ByTitle(title, partialTitle).ByYearOfRelease(yearOfRelease).ByGenres(genres);

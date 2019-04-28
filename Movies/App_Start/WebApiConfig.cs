@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using Movies.Filters;
+using Newtonsoft.Json.Serialization;
 using System.Net.Http.Headers;
 using System.Web.Http;
 
@@ -14,6 +15,9 @@ namespace Movies
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/plain"));
+
+            //Add api filters
+            config.Filters.Add(new FwExceptionFilter());
 
             // Web API routes
             config.MapHttpAttributeRoutes();

@@ -146,6 +146,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Filters\FwExceptionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
